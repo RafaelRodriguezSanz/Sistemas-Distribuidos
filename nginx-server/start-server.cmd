@@ -1,14 +1,14 @@
 echo "Stopping Old Containers" &
-docker stop linux-server-container &
+docker stop ngnix-server-container &
 echo "Removing Old Containers" &
-docker rm linux-server-container &
+docker rm ngnix-server-container &
 echo "Removing Old Images" &
-docker rmi linux-server-image &
+docker rmi ngnix-server-image &
 echo "Removing Very-Old Images" &
 docker image prune -a -f &
 echo "Building New Image" &
-docker build -t linux-server-image . &
+docker build -t ngnix-server-image . &
 echo "Starting Containers" &
-docker run -it -d -p 8080:8080 --name linux-server-container linux-server-image &
+docker run -it -d -p 80:80 --name ngnix-server-container ngnix-server-image &
 echo "Running Containers:" &
 docker ps
