@@ -1,8 +1,0 @@
-FROM influxdb:latest
-
-COPY influxdb.conf /etc/influxdb/influxdb.conf
-
-EXPOSE 8086
-
-COPY ./init-DB.sql ./init-DB.sql
-CMD ["influxd"]
