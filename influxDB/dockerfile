@@ -5,11 +5,6 @@ COPY influxdb.conf /etc/influxdb/influxdb.conf
 
 EXPOSE 8086
 
-COPY ./init-DB.sql ./init-DB.sql
-COPY ./influxdb.conf /etc/influxdb/influxdb.conf
-#RUN influx org create -n ucu
-#RUN influx bucket create --org ucu --name data --description MyData --retention 1h
-#RUN influx user create -n admin -p adminIsMyPassword -o ucu
-#RUN influx write -t adminIsMyPassword -o ucu -b data -f /etc/influxdb/init-DB.sql
-#RUN influx auth create --read-bucket data --write-bucket data --org ucu
+COPY ./init-DB.sql /etc/influxdb2/init-DB.sql
+COPY ./influxdb.conf /etc/influxdb2/influxdb.conf
 CMD ["influxd"]
