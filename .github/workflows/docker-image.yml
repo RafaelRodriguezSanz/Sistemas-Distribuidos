@@ -15,5 +15,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      working-directory: ./Sistemas-Distribuidos/springboot
+      working-directory: ./springboot
       run: cd springboot && mvnw.cmd clean install package && cd .. && docker-compose up
