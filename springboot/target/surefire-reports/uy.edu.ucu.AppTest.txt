@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: uy.edu.ucu.AppTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 s - in uy.edu.ucu.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 s - in uy.edu.ucu.AppTest
