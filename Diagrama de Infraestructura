@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-04-05T02:36:46.249Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="0DFjjaig8dc0tOAlfDZX" version="21.1.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-04-05T02:44:55.125Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="v8xQKu1RbtQlLQUcYDwj" version="21.1.4" type="github">
   <diagram id="QrOtWYuvblPD-uh1-jH_" name="Diagrama de Infraestructura">
-    <mxGraphModel dx="5320" dy="3732" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="7093" dy="4700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -298,7 +298,7 @@
         <mxCell id="cA4qKuAwCeGu7jrFnrXp-18" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png;imageBackground=none;" vertex="1" parent="cA4qKuAwCeGu7jrFnrXp-28">
           <mxGeometry x="132.69000000000005" y="93.14347826086953" width="26.39" height="22.94" as="geometry" />
         </mxCell>
-        <mxCell id="cA4qKuAwCeGu7jrFnrXp-32" value="HTTPS REST API Request" style="edgeStyle=isometricEdgeStyle;endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+        <mxCell id="cA4qKuAwCeGu7jrFnrXp-32" value="HTTPS REST API Request" style="edgeStyle=isometricEdgeStyle;endArrow=none;html=1;rounded=0;strokeColor=#A9C4EB;" edge="1" parent="1">
           <mxGeometry width="50" height="100" relative="1" as="geometry">
             <mxPoint x="334.52" y="150" as="sourcePoint" />
             <mxPoint x="330" y="-460" as="targetPoint" />
@@ -390,6 +390,12 @@
         </mxCell>
         <mxCell id="cA4qKuAwCeGu7jrFnrXp-63" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;strokeWidth=1;align=center;outlineConnect=0;dashed=0;outlineConnect=0;shape=mxgraph.aws3d.dashedEdgeDouble2;strokeColor=#67AB9F;aspect=fixed;" vertex="1" parent="1">
           <mxGeometry x="2010" y="320.33000000000015" width="165.14" height="94.07" as="geometry" />
+        </mxCell>
+        <mxCell id="l5veG8oE7JH0EFe4dRN6-4" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://cdn.iconscout.com/icon/free/png-256/jquery-8-1175153.png;" vertex="1" parent="1">
+          <mxGeometry x="504.05" y="-666" width="76" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="l5veG8oE7JH0EFe4dRN6-9" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://www.kindpng.com/picc/m/476-4768354_ajax-js-logo-png-transparent-png.png;imageBackground=none;" vertex="1" parent="1">
+          <mxGeometry x="470" y="-590" width="144.1" height="69" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
