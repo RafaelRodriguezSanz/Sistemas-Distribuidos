@@ -1,0 +1,12 @@
+{
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
+    "plugins": ["react"],
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "rules": {
+      "no-console": "warn",
+      "react/prop-types": "off"
+    }
+}

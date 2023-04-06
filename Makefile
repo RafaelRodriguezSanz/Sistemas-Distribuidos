@@ -3,7 +3,7 @@ clean:
 	for /f "tokens=*" %i in ('docker ps -aq') do docker rm %i
 	docker image prune -a -f
 build:
-	cd springboot && mvnw.cmd clean install package
+	cd Backend/springboot && mvnw.cmd clean install package
 start:
 	net stop com.docker.service && net start com.docker.service
 deploy:	
