@@ -1,5 +1,7 @@
 # Sistemas-Distribuidos
 
+![Diagram](Diagrama%20de%20Infraestructura.drawio.svg)
+
 ## Pre-Requisites
 
 ### Make CLI (recomended)
