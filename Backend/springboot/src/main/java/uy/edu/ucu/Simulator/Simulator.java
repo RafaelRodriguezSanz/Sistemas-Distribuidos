@@ -27,6 +27,9 @@ public class Simulator {
 
     public Simulator() {
         this.value = Metric.builder()
+                .latitude(-34.9011f)
+                .longitud(56.1645f)
+                .city("Montevideo")
                 .humidity(15f)
                 .instant(LocalDateTime.now())
                 .temperature(15f)
@@ -38,12 +41,17 @@ public class Simulator {
         float jitter = new Random().nextFloat() * (MAX_JITTER - MIN_JITTER) + MIN_JITTER;
         float humidity = this.value.getHumidity() + jitter;
         float temperature = this.value.getTemperature() + jitter;
+        float latitude = this.value.getLatitude();
+        float longitud = this.value.getLongitud();
+        String city = this.value.getCity();
 
         humidity = adjust(humidity, MAX_HUM, MIN_HUM);
         // TODO: Make temperature ajust with sin function to simulate day/night cicle.
         temperature = adjust(temperature, MAX_TEMP, MIN_TEMP);
 
-        this.value = Metric.builder().humidity(humidity).instant(LocalDateTime.now()).temperature(temperature).build();
+        this.value = Metric.builder().latitude(latitude)
+                .longitud(longitud).city(city).humidity(humidity).instant(LocalDateTime.now()).temperature(temperature)
+                .build();
 
         return value;
     }
