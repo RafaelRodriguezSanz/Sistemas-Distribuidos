@@ -12,8 +12,8 @@ public class SensorController {
 
     private final Simulator simulator;
 
-    public SensorController(Simulator simulator) {
-        this.simulator = simulator;
+    public SensorController() {
+        this.simulator = new Simulator();
     }
 
     @GetMapping("/sensor")

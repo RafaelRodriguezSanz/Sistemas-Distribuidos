@@ -1,0 +1,12 @@
+FROM chronograf:latest
+
+COPY ./chronograf.conf /etc/chronograf/chronograf.conf
+
+ENV INFLUXDB_URL=http://influxdb:8086
+ENV INFLUXDB_DB=cdndb
+ENV INFLUXDB_USERNAME=admin
+ENV INFLUXDB_PASSWORD=admin
+
+EXPOSE 8888
+
+CMD ["chronograf"]

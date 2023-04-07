@@ -15,6 +15,12 @@ import lombok.extern.jackson.Jacksonized;
 @Jacksonized
 @Getter
 public class Metric {
+    float latitude;
+
+    float longitud;
+
+    String city;
+
     LocalDateTime instant;
 
     @JsonSerialize(using = HumiditySerializer.class)
