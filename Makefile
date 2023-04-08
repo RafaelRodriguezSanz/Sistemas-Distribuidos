@@ -1,7 +1,5 @@
 clean:
-	for /f "tokens=*" %i in ('docker images -aq') do docker rmi %i
-	for /f "tokens=*" %i in ('docker ps -aq') do docker rm %i
-	docker image prune -a -f
+	for /f "tokens=*" %%i in ('docker images -aq') do docker rmi -f %%i & for /f "tokens=*" %%i in ('docker ps -aq') do docker rm -f %%i & docker image prune -a -f
 build:
 	cd Backend/springboot && mvnw.cmd clean install package
 start:
@@ -12,3 +10,5 @@ stop:
 	docker-compose down
 kill:
 	net stop com.docker.service
+all:
+	make start & make build & make clean & make deploy
