@@ -1,7 +1,5 @@
 FROM openjdk:latest
 
-VOLUME /config
-
 EXPOSE 8080
 
 COPY ./target/springboot-1.0.jar springboot-1.0.jar
