@@ -3,27 +3,38 @@ version: '3'
 services:
   nginx: 
     build: ./Backend/nginx
+    container_name: nginx
     depends_on:
       - influxdb
       - springboot
     ports:
       - "80:80"
+    networks:
+      - default
   springboot:
+    container_name: springboot
     build: ./Backend/springboot
     depends_on:
       - influxdb
+    networks:
+      - default
   influxdb:
     build: ./Backend/influxDB
+    container_name: influxdb
+    depends_on:
+      - chronograf
+    networks:
+      - default
     ports:
+      - "8083:8083"
       - "8086:8086"
       - "8088:8088"
+  chronograf:
+    build: ./Backend/chronograf
+    container_name: chronograf
+    networks:
+      - default
 
-  # chronograf:
-  #   build: ./Backend/chronograf
-  #   ports:
-  #     - "8888:8888"
-
-  # kapacitor:
-  #   build: ./Backend/kapacitor
-  #   ports:
-  #     - "9092:9092"
+networks:
+  default:
+    driver: bridge
