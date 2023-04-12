@@ -13,4 +13,4 @@ stop:
 kill:
 	net stop com.docker.service
 all:
-	make start & make build & make clean & make deploy
+	make start && make clean & make build & make deploy

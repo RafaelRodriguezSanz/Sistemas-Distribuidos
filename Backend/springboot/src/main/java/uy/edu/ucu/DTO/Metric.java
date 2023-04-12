@@ -23,10 +23,9 @@ public class Metric {
 
     LocalDateTime instant;
 
-    @JsonSerialize(using = HumiditySerializer.class)
+    // @JsonSerialize(using = HumiditySerializer.class)
     Float humidity;
 
-    @JsonSerialize(using = TemperatureSerializer.class)
-
+    // @JsonSerialize(using = TemperatureSerializer.class)
     Float temperature;
 }
