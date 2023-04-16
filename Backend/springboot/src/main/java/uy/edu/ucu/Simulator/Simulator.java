@@ -8,14 +8,18 @@ import java.util.Random;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import lombok.Getter;
+import lombok.Setter;
 import uy.edu.ucu.DTO.Metric;
 
 @Component
 @Scope("singleton")
 @Getter
+@Setter
 public class Simulator {
-    private final static float MIN_JITTER = -1.0f;
-    private final static float MAX_JITTER = 1.0f;
+    public float MIN_JITTER_HUM;
+    public float MAX_JITTER_HUM;
+    public float MIN_JITTER_TEMP;
+    public float MAX_JITTER_TEMP;
 
     private final static float MIN_TEMP = -50.0f;
     private final static float MAX_TEMP = 50.0f;
@@ -26,6 +30,11 @@ public class Simulator {
     private Metric value;
 
     public Simulator() {
+        this.MIN_JITTER_HUM = -1.0f;
+        this.MAX_JITTER_HUM = 1.0f;
+        this.MIN_JITTER_TEMP = -1.0f;
+        this.MAX_JITTER_TEMP = 1.0f;
+
         this.value = Metric.builder()
                 .latitude(-34.9011f)
                 .longitud(56.1645f)
@@ -38,9 +47,10 @@ public class Simulator {
 
     public Metric simulate() {
 
-        float jitter = new Random().nextFloat() * (MAX_JITTER - MIN_JITTER) + MIN_JITTER;
-        float humidity = this.value.getHumidity() + jitter;
-        float temperature = this.value.getTemperature() + jitter;
+        float jitterHum = new Random().nextFloat() * (MAX_JITTER_HUM - MIN_JITTER_HUM) + MIN_JITTER_HUM;
+        float jitterTemp = new Random().nextFloat() * (MAX_JITTER_TEMP - MIN_JITTER_TEMP) + MIN_JITTER_TEMP;
+        float humidity = this.value.getHumidity() + jitterHum;
+        float temperature = this.value.getTemperature() + jitterTemp;
         float latitude = this.value.getLatitude();
         float longitud = this.value.getLongitud();
         String city = this.value.getCity();
