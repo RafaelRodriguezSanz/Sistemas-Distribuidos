@@ -7,6 +7,7 @@ import uy.edu.ucu.DTO.Metric;
 import uy.edu.ucu.Simulator.Simulator;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,10 +28,17 @@ public class SensorController {
 
     @GetMapping("/sensor")
     @Scheduled(cron = "${cron.expression}")
-    public Metric hello() {
+    public Metric simulate() {
         Metric metric = simulator.simulate();
-        client.write(metric);
+        // client.write(metric);
         return metric;
+    }
+
+    @GetMapping("/simulate-drought")
+    public ResponseEntity<String> simulateDrought() {
+        simulator.setMAX_JITTER_HUM(0.632f);
+        simulator.setMIN_JITTER_TEMP(-0.632f);
+        return ResponseEntity.accepted().body("204 - Accepted");
     }
 
 }
