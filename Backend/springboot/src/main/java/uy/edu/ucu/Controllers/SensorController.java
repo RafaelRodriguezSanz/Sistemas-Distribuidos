@@ -13,8 +13,8 @@ import uy.edu.ucu.Simulator.Simulator;
 
 import java.util.UUID;
 
-import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
-import org.eclipse.paho.client.mqttv3.MqttCallback;
+import javax.annotation.PostConstruct;
+
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
@@ -48,7 +48,7 @@ public class SensorController {
     }
 
     @GetMapping("/sensor")
-    // @Scheduled(cron = "${cron.expression}")
+    @Scheduled(cron = "${cron.expression}")
     public Metric simulate() throws JsonProcessingException, MqttException {
         Metric metric = simulator.simulate();
         String payload = objectMapper.writeValueAsString(metric);
@@ -93,6 +93,7 @@ public class SensorController {
     }
 
     @GetMapping("/consume")
+    @PostConstruct
     public ResponseEntity<String> consume() throws JsonProcessingException, MqttException {
 
         String broker = "tcp://mosquitto:1883";
