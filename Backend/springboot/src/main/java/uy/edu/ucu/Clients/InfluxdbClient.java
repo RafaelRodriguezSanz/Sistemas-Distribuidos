@@ -1,4 +1,4 @@
-package uy.edu.ucu.Client;
+package uy.edu.ucu.Clients;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
