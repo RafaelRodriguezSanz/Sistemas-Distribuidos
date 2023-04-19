@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>uy.edu.ucu</groupId>
-  <artifactId>springboot</artifactId>
+  <artifactId>springboot-producer</artifactId>
   <version>1.0</version>
 
-  <name>springboot</name>
+  <name>springboot-producer</name>
   <url>http://www.example.com</url>
 
   <parent>
@@ -61,11 +61,6 @@
       <groupId>com.fasterxml.jackson.datatype</groupId>
       <artifactId>jackson-datatype-jsr310</artifactId>
       <version>2.13.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.influxdb</groupId>
-      <artifactId>influxdb-client-java</artifactId>
-      <version>6.8.0</version>
     </dependency>
     <dependency>
      <groupId>com.squareup.okhttp3</groupId>
