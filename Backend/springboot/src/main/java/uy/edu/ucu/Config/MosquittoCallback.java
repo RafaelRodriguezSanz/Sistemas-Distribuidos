@@ -1,5 +1,7 @@
 package uy.edu.ucu.Config;
 
+import java.nio.charset.StandardCharsets;
+
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
@@ -28,7 +30,9 @@ public class MosquittoCallback implements MqttCallback {
 
     @Override
     public void messageArrived(String topic, MqttMessage message) throws Exception {
-        influxdbClient.write(objectMapper.readValue(message.getPayload(), Metric.class));
+        String payload = new String(message.getPayload(), StandardCharsets.UTF_8);
+        System.out.println("New Message: " + payload);
+        influxdbClient.write(objectMapper.readValue(payload, Metric.class));
     }
 
     @Override
