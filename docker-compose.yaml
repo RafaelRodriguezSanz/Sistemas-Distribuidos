@@ -16,6 +16,9 @@ services:
     build: ./Backend/springboot
     depends_on:
       - influxdb
+      - mosquitto
+    ports:
+      - "8080:8080"
     networks:
       - default
   influxdb:
@@ -23,19 +26,27 @@ services:
     container_name: influxdb
     depends_on:
       - chronograf
-    networks:
-      - default
     ports:
       - "8083:8083"
       - "8086:8086"
       - "8088:8088"
+    networks:
+      - default
   chronograf:
     build: ./Backend/chronograf
     container_name: chronograf
-    networks:
-      - default
     ports:
       - "8888:8888"
+    networks:
+      - default
+  mosquitto:
+    build: ./Backend/mosquitto
+    container_name: mosquitto
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    networks:
+      - default
 
 networks:
   default:

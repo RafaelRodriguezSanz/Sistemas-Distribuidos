@@ -1,5 +1,7 @@
 FROM chronograf:latest
 
+COPY ./chronograf.conf ./etc/default/chronograf.conf
+
 EXPOSE 8888
 
 CMD ["chronograf"]
