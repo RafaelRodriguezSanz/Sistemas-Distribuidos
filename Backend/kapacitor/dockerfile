@@ -1,0 +1,9 @@
+FROM kapacitor:latest
+
+COPY kapacitor.conf /etc/kapacitor/kapacitor.conf
+
+EXPOSE 9092
+
+CMD ["kapacitord", "-config", "/etc/kapacitor/kapacitor.conf"]
+
+ENTRYPOINT [ "kapacitord", "config", ">", "/etc/kapacitor/kapacitor.conf"]
