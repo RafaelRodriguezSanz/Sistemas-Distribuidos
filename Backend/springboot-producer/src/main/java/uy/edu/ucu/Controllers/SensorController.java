@@ -6,8 +6,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.AllArgsConstructor;
-import uy.edu.ucu.Clients.InfluxdbClient;
-import uy.edu.ucu.Config.MosquittoCallback;
 import uy.edu.ucu.DTO.Metric;
 import uy.edu.ucu.Simulator.Simulator;
 
@@ -35,16 +33,13 @@ public class SensorController {
 
     private final Simulator simulator;
 
-    private final InfluxdbClient influxdbClient;
-
     @Value("${cron.expression}")
     private String cronExpression;
 
     @Autowired
-    public SensorController(ObjectMapper objectMapper, Simulator simulator, InfluxdbClient influxdbClient) {
+    public SensorController(ObjectMapper objectMapper, Simulator simulator) {
         this.objectMapper = objectMapper;
         this.simulator = simulator;
-        this.influxdbClient = influxdbClient;
     }
 
     @GetMapping("/sensor")
@@ -89,31 +84,6 @@ public class SensorController {
     public ResponseEntity<String> simulateDrought() {
         simulator.setMAX_JITTER_HUM(0.632f);
         simulator.setMIN_JITTER_TEMP(-0.632f);
-        return ResponseEntity.accepted().body("204 - Accepted");
-    }
-
-    @GetMapping("/consume")
-    @PostConstruct
-    public ResponseEntity<String> consume() throws JsonProcessingException, MqttException {
-
-        String broker = "tcp://mosquitto:1883";
-        String topic = "topic";
-        String clientid = "Sensor-" + UUID.randomUUID().toString();
-        int qos = 0;
-
-        try {
-            MqttClient client = new MqttClient(broker, clientid, new MemoryPersistence());
-            // connect options
-            MqttConnectOptions options = new MqttConnectOptions();
-            options.setConnectionTimeout(60);
-            options.setKeepAliveInterval(60);
-            // setup callback
-            client.setCallback(new MosquittoCallback(objectMapper, influxdbClient));
-            client.connect(options);
-            client.subscribe(topic, qos);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         return ResponseEntity.accepted().body("204 - Accepted");
     }
 

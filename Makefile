@@ -1,7 +1,8 @@
 clean:
 	docker builder prune -a -f & for /f "tokens=*" %%i in ('docker images -aq') do docker rmi -f %%i & for /f "tokens=*" %%i in ('docker ps -aq') do docker rm -f %%i & for /f "tokens=*" %%i in ('docker volume ls -q') do docker volume rm -f %%i & docker image prune -a -f & docker network prune -f
 build:
-	cd Backend/springboot && mvnw.cmd clean install package
+	cd Backend/springboot-consumer && mvnw.cmd clean install package
+	cd Backend/springboot-producer && mvnw.cmd clean install package
 initialize:
 	"C:/Archivos de Programa/Docker/Docker/Docker Desktop.exe"
 start:
