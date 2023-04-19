@@ -19,6 +19,24 @@ services:
       - "8888:8888"
     networks:
       - default
+  kapacitor:
+    build: ./Backend/kapacitor
+    container_name: kapacitor
+    depends_on:
+      - influxdb
+    ports:
+      - "9092:9092"
+    networks:
+      - default
+  telegraf:
+    build: ./Backend/telegraf
+    container_name: telegraf
+    depends_on:
+      - influxdb
+    ports:
+      - "8125:8125"
+    networks:
+      - default
   mosquitto:
     build: ./Backend/mosquitto
     container_name: mosquitto
