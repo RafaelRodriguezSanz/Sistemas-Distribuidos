@@ -36,6 +36,13 @@ services:
       - default
     ports:
       - "8888:8888"
+  react:
+    build: ./Frontend/react
+    container_name: react
+    networks:
+      - default
+    ports:
+      - "3000:3000"
 
 networks:
   default:
