@@ -1,0 +1,9 @@
+FROM openjdk:latest
+
+EXPOSE 8080
+
+COPY ./target/springboot-producer-1.0.jar springboot-producer-1.0.jar
+
+ENV TOKEN="0qfrVjTKP-s9VZ_msUoZqez5ubytxENzCZo93WNE1_rzI-2k59tTLcRTMHCsWlxm67paxbCKInl0b8HzG5PzLg=="
+
+ENTRYPOINT ["java","-jar","springboot-producer-1.0.jar"]
