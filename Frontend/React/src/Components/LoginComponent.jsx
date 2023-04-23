@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Paper, Button, ButtonGroup , TextField} from "@material-ui/core";
 
-import {
-  withStyles
-} from '@material-ui/core/styles';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Paper from '@mui/material/Paper';
+import { withStyles } from '@mui/styles';
 
 import bg from "../img/login-background.jpg";
 import icon from "../img/user-icon.png";
