@@ -1,41 +1,84 @@
 version: '3'
 
 services:
-  nginx: 
-    build: ./Backend/nginx
-    container_name: nginx
-    depends_on:
-      - influxdb
-      - springboot
-    ports:
-      - "80:80"
-    networks:
-      - default
-  springboot:
-    container_name: springboot
-    build: ./Backend/springboot
-    depends_on:
-      - influxdb
-    networks:
-      - default
   influxdb:
     build: ./Backend/influxDB
     container_name: influxdb
-    depends_on:
-      - chronograf
-    networks:
-      - default
     ports:
       - "8083:8083"
       - "8086:8086"
       - "8088:8088"
+    networks:
+      - default
   chronograf:
     build: ./Backend/chronograf
     container_name: chronograf
-    networks:
-      - default
+    depends_on:
+      - influxdb
     ports:
       - "8888:8888"
+    networks:
+      - default
+  kapacitor:
+    build: ./Backend/kapacitor
+    container_name: kapacitor
+    depends_on:
+      - influxdb
+    ports:
+      - "9092:9092"
+    networks:
+      - default
+  telegraf:
+    build: ./Backend/telegraf
+    container_name: telegraf
+    depends_on:
+      - influxdb
+    ports:
+      - "8125:8125"
+    networks:
+      - default
+  mosquitto:
+    build: ./Backend/mosquitto
+    container_name: mosquitto
+    depends_on:
+      - influxdb
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    networks:
+      - default
+  springboot-consumer:
+    container_name: springboot-consumer
+    build: ./Backend/springboot-consumer
+    depends_on:
+      - mosquitto
+    ports:
+      - "8081:8081"
+    networks:
+      - default
+  springboot-producer:
+    container_name: springboot-producer
+    build: ./Backend/springboot-producer
+    depends_on:
+      - mosquitto
+      - springboot-consumer
+    ports:
+      - "8082:8082"
+    networks:
+      - default
+  nginx: 
+    build: ./Backend/nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+    networks:
+      - default
+    depends_on:
+      - springboot-consumer
+      - springboot-producer
+      - influxdb
+      - chronograf
+      - mosquitto
   react:
     build: ./Frontend/react
     container_name: react
@@ -43,6 +86,7 @@ services:
       - default
     ports:
       - "3000:3000"
+      - "8080:8080"
 
 networks:
   default:
