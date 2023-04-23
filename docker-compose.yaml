@@ -37,14 +37,14 @@ services:
       - "8125:8125"
     networks:
       - default
-  mosquitto:
-    build: ./Backend/mosquitto
-    container_name: mosquitto
+  springboot-producer:
+    container_name: springboot-producer
+    build: ./Backend/springboot-producer
     depends_on:
-      - influxdb
+      - mosquitto
+      - springboot-consumer
     ports:
-      - "1883:1883"
-      - "9001:9001"
+      - "8082:8082"
     networks:
       - default
   springboot-consumer:
@@ -56,14 +56,14 @@ services:
       - "8081:8081"
     networks:
       - default
-  springboot-producer:
-    container_name: springboot-producer
-    build: ./Backend/springboot-producer
+  mosquitto:
+    build: ./Backend/mosquitto
+    container_name: mosquitto
     depends_on:
-      - mosquitto
-      - springboot-consumer
+      - influxdb
     ports:
-      - "8080:8080"
+      - "1883:1883"
+      - "9001:9001"
     networks:
       - default
   nginx: 
@@ -79,7 +79,14 @@ services:
       - influxdb
       - chronograf
       - mosquitto
-
+  react:
+    build: ./Frontend/react
+    container_name: react
+    networks:
+      - default
+    ports:
+      - "3000:3000"
+      - "8080:8080"
 networks:
   default:
     driver: bridge
