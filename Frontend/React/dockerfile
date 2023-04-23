@@ -5,15 +5,13 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 ENV CHOKIDAR_USEPOLLING=true
 
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm install --silent --legacy-peer-deps
+COPY . ./
 RUN npm install react-scripts@3.4.1 -g --silent
+RUN npm install --legacy-peer-deps
 
 EXPOSE 3000
 
-COPY . ./
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "start"]
 
 VOLUME [ "/app/node_modules" ]
