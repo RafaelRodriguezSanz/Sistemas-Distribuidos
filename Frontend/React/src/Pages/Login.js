@@ -1,8 +1,6 @@
-import '../App.css';
-<<<<<<< HEAD
 import React from 'react';
-=======
->>>>>>> master
+import '../App.css';
+import React from 'react';
 import LoginComponent from '../Components/LoginComponent';
 
 function Login() {
