@@ -1,9 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD
-import ReactDOM from 'react-dom';
-=======
 import ReactDOM from 'react-dom/client';
->>>>>>> master
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Login from './Pages/Login';
