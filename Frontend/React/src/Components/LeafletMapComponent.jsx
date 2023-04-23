@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from 'react';
 import { MapContainer  , TileLayer, Marker, Popup } from 'react-leaflet';
 
 const position = [-34.90328, -56.18816];
