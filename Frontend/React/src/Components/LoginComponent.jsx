@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { Paper, Button, ButtonGroup , TextField} from "@mui/material";
+import { Paper, Button, ButtonGroup , TextField, Typography} from "@mui/material";
 
 import {
   withStyles
 } from '@mui/styles';
 
 import bg from "../img/login-background.jpg";
-import icon from "../img/user-icon.png";
 
 class LoginComponent extends Component {
   render() {
@@ -87,20 +86,7 @@ class LoginComponent extends Component {
     return (
       <div style={backgroundStyles}>
         <Paper elevation={3} style={ glass }>
-          <div style={spacing}>
-            <img src={icon} alt="User icon" style={
-              {
-                color: "white", 
-                padding: "16px"
-              }
-            }/>
-            <span style={
-              {
-                color: "white", 
-                padding: "16px"
-              }
-            }>Rafael Rodriguez</span>
-          </div>
+          <Typography variant="h3" component="h2" color="common.white" style={{textAlign: "center"}}>WATSON</Typography>
           <br />
           <div style={spacing}>
             <span style={
