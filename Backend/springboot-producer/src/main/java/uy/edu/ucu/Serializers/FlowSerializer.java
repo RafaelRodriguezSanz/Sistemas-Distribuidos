@@ -7,17 +7,17 @@ import java.text.DecimalFormat;
 import java.util.StringJoiner;
 import java.io.IOException;
 
-public class TemperatureSerializer extends JsonSerializer<Float> {
+public class FlowSerializer extends JsonSerializer<Float> {
 
-    private static final String UNIT = "°C";
+    private static final String UNIT = "m³/s";
 
     private final DecimalFormat decimalFormat = new DecimalFormat("0.00");
 
     @Override
-    public void serialize(Float temperatureFloat, JsonGenerator jsonGenerator, SerializerProvider serializerProvider)
+    public void serialize(Float FlowFloat, JsonGenerator jsonGenerator, SerializerProvider serializerProvider)
             throws IOException {
         final StringJoiner joiner = new StringJoiner(" ");
-        joiner.add(decimalFormat.format(temperatureFloat));
+        joiner.add(decimalFormat.format(FlowFloat));
         joiner.add(UNIT);
         jsonGenerator.writeString(joiner.toString());
     }

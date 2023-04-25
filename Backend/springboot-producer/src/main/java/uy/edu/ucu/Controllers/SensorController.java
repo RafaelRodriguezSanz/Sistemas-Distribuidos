@@ -82,8 +82,8 @@ public class SensorController {
 
     @GetMapping("/simulate-drought")
     public ResponseEntity<String> simulateDrought() {
-        simulator.setMAX_JITTER_HUM(0.632f);
-        simulator.setMIN_JITTER_TEMP(-0.632f);
+        simulator.setMAX_JITTER_FLOW(0.632f);
+        simulator.setMIN_JITTER_FLOW(-1.368f);
         return ResponseEntity.accepted().body("204 - Accepted");
     }
 
