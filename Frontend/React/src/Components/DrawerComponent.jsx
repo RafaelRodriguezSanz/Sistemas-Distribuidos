@@ -26,6 +26,7 @@ import SensorsIcon from '@mui/icons-material/Sensors';
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import ForkRightIcon from '@mui/icons-material/ForkRight';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -138,7 +139,7 @@ export default function DrawerComponent(props) {
         <Divider />
         <List>
             <ListItem key="Leaflet" disablePadding sx={{ display: 'block' }}>
-              <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
+              <ListItemButton component={Link} to="/Map" sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
                 <ListItemIcon sx={{ minWidth: 0, mr: open ? 3 : 'auto', justifyContent: 'center'}}>
                   <MapIcon/>
                 </ListItemIcon>
@@ -147,7 +148,7 @@ export default function DrawerComponent(props) {
             </ListItem>
             <Divider/>
             <ListItem key="Chronograf" disablePadding sx={{ display: 'block' }}>
-              <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
+              <ListItemButton component={Link} to="/Chronograf" sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
                 <ListItemIcon sx={{ minWidth: 0, mr: open ? 3 : 'auto', justifyContent: 'center'}}>
                   <QueryStatsIcon/>
                 </ListItemIcon>
@@ -155,7 +156,7 @@ export default function DrawerComponent(props) {
               </ListItemButton>
             </ListItem>
             <ListItem key="InfluxDB" disablePadding sx={{ display: 'block' }}>
-              <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
+              <ListItemButton component={Link} to="/InfluxDB" sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
                 <ListItemIcon sx={{ minWidth: 0, mr: open ? 3 : 'auto', justifyContent: 'center'}}>
                   <StorageIcon/>
                 </ListItemIcon>
@@ -163,7 +164,7 @@ export default function DrawerComponent(props) {
               </ListItemButton>
             </ListItem>
             <ListItem key="Kapacitor" disablePadding sx={{ display: 'block' }}>
-              <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
+              <ListItemButton component={Link} to="/Kapacitor" sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
                 <ListItemIcon sx={{ minWidth: 0, mr: open ? 3 : 'auto', justifyContent: 'center'}}>
                   <MemoryIcon/>
                 </ListItemIcon>
@@ -171,7 +172,7 @@ export default function DrawerComponent(props) {
               </ListItemButton>
             </ListItem>
             <ListItem key="Telegraf" disablePadding sx={{ display: 'block' }}>
-              <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
+              <ListItemButton component={Link} to="/Telegraf" sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
                 <ListItemIcon sx={{ minWidth: 0, mr: open ? 3 : 'auto', justifyContent: 'center'}}>
                   <SettingsInputAntennaIcon/>
                 </ListItemIcon>
@@ -180,7 +181,7 @@ export default function DrawerComponent(props) {
             </ListItem>
             <Divider/>
             <ListItem key="Mosquito" disablePadding sx={{ display: 'block' }}>
-              <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
+              <ListItemButton component={Link} to="/Mosquito" sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
                 <ListItemIcon sx={{ minWidth: 0, mr: open ? 3 : 'auto', justifyContent: 'center'}}>
                   <InventoryIcon/>
                 </ListItemIcon>
@@ -189,7 +190,7 @@ export default function DrawerComponent(props) {
             </ListItem>
             <Divider/>
             <ListItem key="Sensors" disablePadding sx={{ display: 'block' }}>
-              <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
+              <ListItemButton component={Link} to="/Sensors" sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
                 <ListItemIcon sx={{ minWidth: 0, mr: open ? 3 : 'auto', justifyContent: 'center'}}>
                   <SensorsIcon/>
                 </ListItemIcon>
@@ -197,7 +198,7 @@ export default function DrawerComponent(props) {
               </ListItemButton>
             </ListItem>
             <ListItem key="Consumers" disablePadding sx={{ display: 'block' }}>
-              <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
+              <ListItemButton component={Link} to="/Consumers" sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
                 <ListItemIcon sx={{ minWidth: 0, mr: open ? 3 : 'auto', justifyContent: 'center'}}>
                   <ReadMoreIcon/>
                 </ListItemIcon>
@@ -206,7 +207,7 @@ export default function DrawerComponent(props) {
             </ListItem>
             <Divider/>
             <ListItem key="Nginx" disablePadding sx={{ display: 'block' }} style={{ flexGrow: 1 }}>
-              <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
+              <ListItemButton component={Link} to="/Nginx" sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
                 <ListItemIcon sx={{ minWidth: 0, mr: open ? 3 : 'auto', justifyContent: 'center'}}>
                   <ForkRightIcon/>
                 </ListItemIcon>
@@ -214,7 +215,7 @@ export default function DrawerComponent(props) {
               </ListItemButton>
             </ListItem>
             <ListItem key="LogOut" disablePadding sx={{ display: 'block' }}>
-              <ListItemButton sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
+              <ListItemButton component={Link} to="/" sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
                 <ListItemIcon sx={{ minWidth: 0, mr: open ? 3 : 'auto', justifyContent: 'center'}}>
                   <LogoutIcon/>
                 </ListItemIcon>
