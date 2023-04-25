@@ -16,51 +16,43 @@ import uy.edu.ucu.DTO.Metric;
 @Getter
 @Setter
 public class Simulator {
-    public float MIN_JITTER_HUM;
-    public float MAX_JITTER_HUM;
-    public float MIN_JITTER_TEMP;
-    public float MAX_JITTER_TEMP;
+    public float MIN_JITTER_FLOW;
+    public float MAX_JITTER_FLOW;
 
-    private final static float MIN_TEMP = -50.0f;
-    private final static float MAX_TEMP = 50.0f;
-
-    private final static float MIN_HUM = 0.0f;
-    private final static float MAX_HUM = 100.0f;
+    private final static float MIN_FLOW = 0.0f;
+    private final static float MAX_FLOW = 100.0f;
 
     private Metric value;
 
     public Simulator() {
-        this.MIN_JITTER_HUM = -1.0f;
-        this.MAX_JITTER_HUM = 1.0f;
-        this.MIN_JITTER_TEMP = -1.0f;
-        this.MAX_JITTER_TEMP = 1.0f;
+        this.MIN_JITTER_FLOW = -1.0f;
+        this.MAX_JITTER_FLOW = 1.0f;
 
         this.value = Metric.builder()
                 .latitude(-34.9011f)
                 .longitud(56.1645f)
                 .city("Montevideo")
-                .humidity(15f)
+                .flow(50f)
                 .instant(LocalDateTime.now())
-                .temperature(15f)
                 .build();
     }
 
     public Metric simulate() {
 
-        float jitterHum = new Random().nextFloat() * (MAX_JITTER_HUM - MIN_JITTER_HUM) + MIN_JITTER_HUM;
-        float jitterTemp = new Random().nextFloat() * (MAX_JITTER_TEMP - MIN_JITTER_TEMP) + MIN_JITTER_TEMP;
-        float humidity = this.value.getHumidity() + jitterHum;
-        float temperature = this.value.getTemperature() + jitterTemp;
+        float jitterFlow = new Random().nextFloat() * (MAX_JITTER_FLOW - MIN_JITTER_FLOW) + MIN_JITTER_FLOW;
+        float flow = this.value.getFlow() + jitterFlow;
         float latitude = this.value.getLatitude();
         float longitud = this.value.getLongitud();
         String city = this.value.getCity();
 
-        humidity = adjust(humidity, MAX_HUM, MIN_HUM);
-        // TODO: Make temperature ajust with sin function to simulate day/night cicle.
-        temperature = adjust(temperature, MAX_TEMP, MIN_TEMP);
+        flow = adjust(flow, MAX_FLOW, MIN_FLOW);
 
-        this.value = Metric.builder().latitude(latitude)
-                .longitud(longitud).city(city).humidity(humidity).instant(LocalDateTime.now()).temperature(temperature)
+        this.value = Metric.builder()
+                .latitude(latitude)
+                .longitud(longitud)
+                .city(city)
+                .flow(flow)
+                .instant(LocalDateTime.now())
                 .build();
 
         return value;
