@@ -2,6 +2,13 @@ FROM telegraf:latest
 
 COPY ./telegraf.conf ./etc/telegraf/telegraf.conf
 
+ENV INFLUXDB_HOST_USERNAME=admin
+ENV INFLUXDB_HOST_PASSWORD=admin12345
+ENV INFLUXDB_ORG=UCU
+ENV INFLUXDB_BUCKET=DATA
+ENV INFLUXDB_TOKEN=0qfrVjTKP-s9VZ_msUoZqez5ubytxENzCZo93WNE1_rzI-2k59tTLcRTMHCsWlxm67paxbCKInl0b8HzG5PzLg==
+ENV INFLUXDB_HOST=:http://localhost:8086
+
 EXPOSE 8125
 
 CMD ["telegraf"]

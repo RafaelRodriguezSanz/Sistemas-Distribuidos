@@ -1,13 +1,11 @@
 package uy.edu.ucu.DTO;
 
-import uy.edu.ucu.Serializers.HumiditySerializer;
-import uy.edu.ucu.Serializers.TemperatureSerializer;
+// import uy.edu.ucu.Serializers.FlowSerializer;
+// import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.LocalDateTime;
 
 import lombok.Builder;
 import lombok.Getter;
-
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import lombok.extern.jackson.Jacksonized;
 
@@ -23,9 +21,6 @@ public class Metric {
 
     LocalDateTime instant;
 
-    // @JsonSerialize(using = HumiditySerializer.class)
-    Float humidity;
-
-    // @JsonSerialize(using = TemperatureSerializer.class)
-    Float temperature;
+    // @JsonSerialize(using = FlowSerializer.class)
+    Float flow;
 }
