@@ -9,8 +9,6 @@ import com.influxdb.annotations.Measurement;
 import lombok.Builder;
 import lombok.Setter;
 import lombok.extern.jackson.Jacksonized;
-import uy.edu.ucu.Serializers.HumiditySerializer;
-import uy.edu.ucu.Serializers.TemperatureSerializer;
 
 @Builder
 @Jacksonized
@@ -19,6 +17,7 @@ public class MetricPO {
     @Column(tag = true)
     @Setter
     String host;
+
     @Column
     float latitude;
 
@@ -32,10 +31,8 @@ public class MetricPO {
     LocalDateTime instant;
 
     @Column
-    Float humidity;
+    Float flow;
 
-    @Column
-    Float temperature;
     @Column(timestamp = true)
     Instant time;
 }
