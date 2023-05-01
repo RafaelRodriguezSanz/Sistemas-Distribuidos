@@ -4,6 +4,7 @@ import L from 'leaflet';
 import '../App.css';
 import markerIcon from '../img/pipe.png';
 import { Paper } from "@mui/material";
+import {InfluxDB} from '@influxdata/influxdb-client'
 
 const icon = L.icon({
   iconUrl: markerIcon,
@@ -20,6 +21,20 @@ const latitud = -34.90328
 const longitud = -56.18816
 const caudal = 53
 const position = [latitud, longitud];
+
+async function queryRaw() {
+  const queryApi = new InfluxDB('http://influxdb:8086' , '0qfrVjTKP-s9VZ_msUoZqez5ubytxENzCZo93WNE1_rzI-2k59tTLcRTMHCsWlxm67paxbCKInl0b8HzG5PzLg==').getQueryApi('UCU')
+  const fluxQuery = `
+    from(bucket: "DATA")
+    |> range(start: -5s)
+    |> filter(fn: (r) => r["_measurement"] == "flow")
+    |> mean()
+    |> group(columns: ["Montevideo"])
+  `
+  const result = await queryApi.queryRaw(fluxQuery)
+  console.log(result)
+  console.log('\nQueryRaw SUCCESS')
+}
 
 
 class LeafletMapComponent extends Component {

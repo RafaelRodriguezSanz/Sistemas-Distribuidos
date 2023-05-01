@@ -6,7 +6,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 ENV CHOKIDAR_USEPOLLING=true
 
 COPY . ./
-RUN npm install react-scripts@3.4.1 -g --silent
+RUN npm install react-scripts@latest -g --silent
 RUN npm install --legacy-peer-deps
 
 EXPOSE 3000
