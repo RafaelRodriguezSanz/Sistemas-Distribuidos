@@ -1,5 +1,7 @@
 clean:
-	rm -r Kube && docker builder prune -a -f & for /f "tokens=*" %%i in ('docker images -aq') do docker rmi -f %%i & for /f "tokens=*" %%i in ('docker ps -aq') do docker rm -f %%i & for /f "tokens=*" %%i in ('docker volume ls -q') do docker volume rm -f %%i & docker image prune -a -f & docker network prune -f
+	docker builder prune -a -f & for /f "tokens=*" %%i in ('docker images -aq') do docker rmi -f %%i & for /f "tokens=*" %%i in ('docker ps -aq') do docker rm -f %%i & for /f "tokens=*" %%i in ('docker volume ls -q') do docker volume rm -f %%i & docker image prune -a -f & docker network prune -f
+clean-kub:
+	rm -r Kube
 build:
 	cd Backend/springboot-consumer && mvnw.cmd clean install package
 	cd Backend/springboot-producer && mvnw.cmd clean install package

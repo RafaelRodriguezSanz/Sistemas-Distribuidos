@@ -30,7 +30,7 @@ public class Simulator {
 
         this.value = Metric.builder()
                 .latitude(-34.9011f)
-                .longitud(56.1645f)
+                .longitud(-56.1645f)
                 .city("Montevideo")
                 .flow(50f)
                 .instant(LocalDateTime.now())
