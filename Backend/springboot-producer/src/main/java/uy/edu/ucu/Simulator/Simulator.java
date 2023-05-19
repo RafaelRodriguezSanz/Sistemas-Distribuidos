@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import lombok.Getter;
 import lombok.Setter;
+import uy.edu.ucu.Config.RandomCoordinates;
 import uy.edu.ucu.DTO.Metric;
 
 @Component
@@ -29,27 +30,27 @@ public class Simulator {
         this.MAX_JITTER_FLOW = 1.0f;
 
         this.value = Metric.builder()
-                .latitude(-34.9011f)
-                .longitud(-56.1645f)
+                // .latitude(-34.9011f)
+                // .longitud(-56.1645f)
                 .city("Montevideo")
                 .flow(50f)
                 .instant(LocalDateTime.now())
                 .build();
     }
 
-    public Metric simulate() {
+    public Metric simulate(RandomCoordinates coordinates) {
 
         float jitterFlow = new Random().nextFloat() * (MAX_JITTER_FLOW - MIN_JITTER_FLOW) + MIN_JITTER_FLOW;
         float flow = this.value.getFlow() + jitterFlow;
-        float latitude = this.value.getLatitude();
-        float longitud = this.value.getLongitud();
+        // float latitude = this.value.getLatitude();
+        // float longitud = this.value.getLongitud();
         String city = this.value.getCity();
 
         flow = adjust(flow, MAX_FLOW, MIN_FLOW);
 
         this.value = Metric.builder()
-                .latitude(latitude)
-                .longitud(longitud)
+                .latitude(coordinates.getLatitude())
+                .longitud(coordinates.getLongitud())
                 .city(city)
                 .flow(flow)
                 .instant(LocalDateTime.now())

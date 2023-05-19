@@ -16,7 +16,7 @@ build:
 
 start:
 	echo "Starting Containers"
-	docker run -it -d -p 8086:8086 --name kapacitor-container kapacitor-image
+	docker run --network=default -it -d -p 9092:9092 --name kapacitor kapacitor-image
 
 ps:
 	echo "Running Containers:"
