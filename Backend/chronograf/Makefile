@@ -16,7 +16,7 @@ build:
 
 start:
 	echo "Starting Containers"
-	docker run -it -d -p 8086:8086 --name chronograf-container chronograf-image
+	docker run --network=default -it -d -p 8888:8888 --name chronograf chronograf-image
 
 ps:
 	echo "Running Containers:"

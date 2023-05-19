@@ -6,8 +6,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.AllArgsConstructor;
-import uy.edu.ucu.DTO.Metric;
 import uy.edu.ucu.Simulator.Simulator;
+import uy.edu.ucu.Config.RandomCoordinates;
+import uy.edu.ucu.DTO.Metric;
 
 import java.util.UUID;
 
@@ -32,20 +33,22 @@ public class SensorController {
     private final ObjectMapper objectMapper;
 
     private final Simulator simulator;
+    private final RandomCoordinates cordinates;
 
     @Value("${cron.expression}")
     private String cronExpression;
 
     @Autowired
-    public SensorController(ObjectMapper objectMapper, Simulator simulator) {
+    public SensorController(ObjectMapper objectMapper, Simulator simulator, RandomCoordinates cordinates) {
         this.objectMapper = objectMapper;
         this.simulator = simulator;
+        this.cordinates = cordinates;
     }
 
     @GetMapping("/sensor")
     @Scheduled(cron = "${cron.expression}")
     public Metric simulate() throws JsonProcessingException, MqttException {
-        Metric metric = simulator.simulate();
+        Metric metric = simulator.simulate(this.cordinates);
         String payload = objectMapper.writeValueAsString(metric);
 
         String broker = "tcp://mosquitto:1883";

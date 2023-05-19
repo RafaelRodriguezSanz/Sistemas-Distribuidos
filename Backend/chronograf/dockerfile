@@ -4,4 +4,4 @@ COPY ./chronograf.conf ./etc/default/chronograf.conf
 
 EXPOSE 8888
 
-CMD ["chronograf"]
+CMD ["chronograf", "--influxdb-url=http://influxdb:8086", "--influxdb-token=0qfrVjTKP-s9VZ_msUoZqez5ubytxENzCZo93WNE1_rzI-2k59tTLcRTMHCsWlxm67paxbCKInl0b8HzG5PzLg==", "--influxdb-username=admin"]

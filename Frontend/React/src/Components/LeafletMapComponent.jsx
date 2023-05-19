@@ -19,7 +19,6 @@ const icon = L.icon({
 
 const latitud = -34.90328
 const longitud = -56.18816
-
 const center = [latitud, longitud];
 const url = 'http://localhost:8086'
 const token = '0qfrVjTKP-s9VZ_msUoZqez5ubytxENzCZo93WNE1_rzI-2k59tTLcRTMHCsWlxm67paxbCKInl0b8HzG5PzLg=='
@@ -96,7 +95,6 @@ function LeafletMapComponent() {
                 </CircleMarker>
               )}
           </MapContainer>
-          <button onClick={queryRaw}>Click me</button>
       </Paper>
     );
 };
