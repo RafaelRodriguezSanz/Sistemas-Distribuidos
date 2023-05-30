@@ -11,7 +11,7 @@ function LeafletMap() {
       <>
         <div>
         </div>
-        <DrawerComponent logout={logout} avatarimage={ user.picture } name={ user.name } content={LeafletMapComponent}></DrawerComponent>
+        <DrawerComponent logout={logout} avatarimage={ user.picture } name={ user.name  } content={LeafletMapComponent}></DrawerComponent>
       </>
     </div>
   );
