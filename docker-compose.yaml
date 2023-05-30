@@ -1,5 +1,5 @@
 version: '3'
-
+name: sistemas-distribuidos
 services:
   influxdb:
     build: ./Backend/influxDB
