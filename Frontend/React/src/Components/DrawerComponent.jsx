@@ -26,6 +26,8 @@ import SensorsIcon from '@mui/icons-material/Sensors';
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import ForkRightIcon from '@mui/icons-material/ForkRight';
 import LogoutIcon from '@mui/icons-material/Logout';
+import Avatar from '@mui/material/Avatar';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -99,6 +101,9 @@ export default function DrawerComponent(props) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const Content = props.content;
+  const AvatarImage = props.avatarimage;
+  const LogOut = props.logout;
+  const Name = props.name;
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -138,6 +143,15 @@ export default function DrawerComponent(props) {
         </DrawerHeader>
         <Divider />
         <List>
+            <ListItem key="Avatar" disablePadding sx={{ display: 'block' }}>
+              <ListItemButton component={Link} sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
+                <ListItemIcon sx={{ minWidth: 0, mr: open ? 3 : 'auto', justifyContent: 'center'}}>
+                <Avatar alt={Name} src={AvatarImage} />
+                </ListItemIcon>
+                <ListItemText primary={"Hi " + Name}  sx={{ opacity: open ? 1 : 0 }} primaryTypographyProps={{ style: { whiteSpace: "normal" } }}
+                />
+              </ListItemButton>
+            </ListItem>
             <ListItem key="Leaflet" disablePadding sx={{ display: 'block' }}>
               <ListItemButton component={Link} to="/Map" sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
                 <ListItemIcon sx={{ minWidth: 0, mr: open ? 3 : 'auto', justifyContent: 'center'}}>
@@ -215,7 +229,7 @@ export default function DrawerComponent(props) {
               </ListItemButton>
             </ListItem>
             <ListItem key="LogOut" disablePadding sx={{ display: 'block' }}>
-              <ListItemButton component={Link} to="/" sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
+              <ListItemButton onClick={LogOut} component={Link} to="/" sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5}}>
                 <ListItemIcon sx={{ minWidth: 0, mr: open ? 3 : 'auto', justifyContent: 'center'}}>
                   <LogoutIcon/>
                 </ListItemIcon>
