@@ -4,8 +4,7 @@
 ![Diagram](Diagrama%20de%20Infraestructura.drawio.svg)
 
 ## Diagrama de implementación
-![Diagrama de implementacion](https://github.com/RafaelRodriguezSanz/Sistemas-Distribuidos/assets/69221486/c93fe463-5d4b-4727-a251-63798c7bf860)
-
+![Diagrama de implementacion](https://github.com/RafaelRodriguezSanz/Sistemas-Distribuidos/assets/69221486/1483208d-da35-441f-8ab2-f9a9020c08a4)
 
 ## Pre-Requisites
 
