@@ -1,6 +1,8 @@
 # Sistemas-Distribuidos
 
 ![Diagram](Diagrama%20de%20Infraestructura.drawio.svg)
+![Diagrama de implementacion](https://github.com/RafaelRodriguezSanz/Sistemas-Distribuidos/assets/69221486/c93fe463-5d4b-4727-a251-63798c7bf860)
+
 
 ## Pre-Requisites
 
